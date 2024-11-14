@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<style>
+    body {
+        background: linear-gradient(to right, #dae0e2, #bac4c7, #8e9ea4);
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    #form {
+        width: 400px;
+        margin: 20vh auto 0 auto;
+        padding: 20px;
+        background-color: whitesmoke;
+        border-radius: 4px;
+        font-size: 12px;
+    }
+    
+    #form h1 {
+        color: #0f2027;
+        text-align: center;
+    }
+    
+    #form button {
+        padding: 10px;
+        margin-top: 10px;
+        width: 100%;
+        color: white;
+        background-color: rgb(41, 57, 194);
+        border: none;
+        border-radius: 4px;
+    }
+    
+    .input-control {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .input-control input {
+        border: 2px solid #f0f0f0;
+        border-radius: 4px;
+        display: block;
+        font-size: 12px;
+        padding: 10px;
+        padding-left: 15px;
+        /* Thêm khoảng cách bên trái */
+        width: 100%;
+        box-sizing: border-box;
+        /* Đảm bảo padding không làm thay đổi kích thước của ô nhập */
+    }
+    
+    .input-control input:focus {
+        outline: 0;
+    }
+    
+    .input-control.success input {
+        border-color: #09c372;
+    }
+    
+    .input-control.error input {
+        border-color: #ff3860;
+    }
+    
+    .input-control .error {
+        color: #ff3860;
+        font-size: 9px;
+        height: 13px;
+    }
+    /* Style for back button */
+    
+    #back-button {
+        padding: 10px;
+        margin-top: 10px;
+        width: 100%;
+        color: white;
+        background-color: #888888;
+        border: none;
+        border-radius: 4px;
+        text-align: center;
+        cursor: pointer;
+    }
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const form = document.getElementById('form');
+        const username = document.getElementById('username');
+        const password = document.getElementById('password');
+        const backButton = document.getElementById('back-button'); // New back button
+
+        const messageBox = document.createElement('div');
+        messageBox.id = 'messageBox';
+        messageBox.style.display = 'none';
+        messageBox.style.padding = '10px';
+        messageBox.style.marginTop = '10px';
+        messageBox.style.borderRadius = '5px';
+        form.appendChild(messageBox);
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            validateInputs();
+        });
+
+        backButton.addEventListener('click', () => {
+            window.location.href = 'home.html'; // Replace 'index.html' with your homepage URL
+        });
+
+        const setError = (element, message) => {
+            const inputControl = element.parentElement;
+            const errorDisplay = inputControl.querySelector('.error');
+            errorDisplay.innerText = message;
+            inputControl.classList.add('error');
+            inputControl.classList.remove('success');
+        };
+
+        const setSuccess = element => {
+            const inputControl = element.parentElement;
+            const errorDisplay = inputControl.querySelector('.error');
+            errorDisplay.innerText = '';
+            inputControl.classList.add('success');
+            inputControl.classList.remove('error');
+        };
+
+        const validateInputs = () => {
+            const usernameValue = username.value.trim();
+            const passwordValue = password.value.trim();
+            let isValid = true;
+
+            if (usernameValue === '') {
+                setError(username, 'Username is required');
+                isValid = false;
+            } else {
+                setSuccess(username);
+            }
+
+            if (passwordValue === '') {
+                setError(password, 'Password is required');
+                isValid = false;
+            } else if (passwordValue.length < 8) {
+                setError(password, 'Password must be at least 8 characters.');
+                isValid = false;
+            } else {
+                setSuccess(password);
+            }
+
+            if (isValid) {
+                messageBox.style.display = 'block';
+                messageBox.style.backgroundColor = 'lightgreen';
+                messageBox.innerText = 'Successful';
+                window.location.href = 'home.html'; // Redirect to success page
+            } else {
+                messageBox.style.display = 'block';
+                messageBox.style.backgroundColor = 'lightcoral';
+                messageBox.innerText = 'Please try again';
+            }
+        };
+    });
+</script>
+
+<body>
+    <div class="container">
+        <form id="form" action="/">
+            <h1>ĐĂNG NHẬP</h1>
+            <div class="input-control">
+                <label for="username">Tên đăng nhập</label>
+                <input id="username" name="username" type="text">
+                <div class="error"></div>
+            </div>
+
+            <div class="input-control">
+                <label for="password">Mật khẩu</label>
+                <input id="password" name="password" type="password">
+                <div class="error"></div>
+            </div>
+
+            <button type="submit">Đăng nhập</button>
+            <button type="button" id="back-button">Quay lại trang chủ</button>
+            <!-- New back button -->
+        </form>
+    </div>
+</body>
+
+</html>

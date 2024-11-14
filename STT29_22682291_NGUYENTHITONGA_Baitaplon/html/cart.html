@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <style>
+        /* General styles */
+        
+        body {
+            font-family: 'Jost', sans-serif;
+            margin-top: 80px;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #f5f5f5;
+        }
+        
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+        }
+        
+        .search-form {
+            display: flex;
+            align-items: center;
+        }
+        
+        .search-form input {
+            margin-right: 5px;
+        }
+        
+        .cart-container-wrapper {
+            display: flex;
+            justify-content: center;
+            padding: 60px 0;
+        }
+        
+        .cart-container {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+            /* Khung đen */
+            border-radius: 10px;
+            background-color: #f5f5f5;
+            width: 80%;
+        }
+        
+        .cart-box {
+            width: 65%;
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .summary-box {
+            width: 30%;
+            background: #f0f0f0;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid #ddd;
+            align-items: center;
+        }
+        
+        .cart-item img {
+            width: 70px;
+            height: auto;
+            border-radius: 8px;
+        }
+        
+        .item-info {
+            flex-grow: 1;
+            margin-left: 15px;
+        }
+        
+        .item-info h5 {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        
+        .item-info p {
+            margin: 0;
+            color: #666;
+        }
+        
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+        }
+        
+        .quantity-controls button {
+            background-color: #ffffff;
+            color: rgb(0, 0, 0);
+            border: none;
+            padding: 5px 10px;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+        
+        .summary-box h4,
+        .cart-box h3 {
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .total-price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            margin-top: auto;
+        }
+        
+        .checkout-btn {
+            width: 100%;
+            background-color: black;
+            color: white;
+            padding: 10px;
+            border: none;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container d-flex align-items-center justify-content-between">
+            <a href="#" class="logo"><img src="../img/logo.png" alt="Logo" style="max-width: 120px;"></a>
+            <nav class="nav">
+                <a href="../html/home.html" class="text-dark nav-link">Trang chủ</a>
+                <a href="../html/product.html" class="text-dark nav-link">Sản Phẩm</a>
+                <a href="../html/blog.html" class="text-dark nav-link">Bài viết</a>
+                <a href="../html/cart.html" class="text-dark nav-link">Giỏ hàng</a>
+                <a href="../html/map.html" class="text-dark nav-link">Bản đồ</a>
+                <a href="../html/contact.html" class="text-dark nav-link">Liên hệ</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="text-dark nav-link dropdown-toggle" id="userMenu" data-toggle="dropdown">Tài khoản</a>
+                    <div class="dropdown-menu" aria-labelledby="userMenu">
+                        <a class="dropdown-item" href="#">Đăng ký</a>
+                        <a class="dropdown-item" href="#">Đăng nhập</a>
+                    </div>
+                </div>
+            </nav>
+            <div class="nav-icons d-flex align-items-center">
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-secondary" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </header>
+
+    <div class="cart-container-wrapper">
+        <div class="cart-container">
+            <div class="cart-box">
+                <h3>Giỏ hàng</h3>
+                <div class="cart-item">
+                    <img src="../img/2.jpg" alt="Product Image">
+                    <div class="item-info">
+                        <h5>Đồ Nữ trẻ trung</h5>
+                        <p>đồ nữ</p>
+                    </div>
+                    <div class="quantity-controls">
+                        <button>-</button>
+                        <span>1</span>
+                        <button>+</button>
+                    </div>
+                    <span>560.000 VND</span>
+                    <button class="btn btn-link text-dark">✕</button>
+                </div>
+
+                <div class="cart-item">
+                    <img src="../img/20.jpg" alt="Product Image">
+                    <div class="item-info">
+                        <h5>Đồ đôi năng động</h5>
+                        <p> đồ đôi</p>
+                    </div>
+                    <div class="quantity-controls">
+                        <button>-</button>
+                        <span>1</span>
+                        <button>+</button>
+                    </div>
+                    <span>660.000 VND</span>
+                    <button class="btn btn-link text-dark">✕</button>
+                </div>
+
+
+                <div class="cart-item">
+                    <img src="../img/6.jpg" alt="Product Image">
+                    <div class="item-info">
+                        <h5>Đồ Nữ phong cách</h5>
+                        <p> đồ nữ</p>
+                    </div>
+                    <div class="quantity-controls">
+                        <button>-</button>
+                        <span>1</span>
+                        <button>+</button>
+                    </div>
+                    <span>560.000 VND</span>
+                    <button class="btn btn-link text-dark">✕</button>
+                </div>
+
+
+
+                <!-- Repeat this cart-item block for each item in the cart -->
+                <a href="../html/product.html" class="text-dark mt-3 d-block">← Sản phẩm</a>
+            </div>
+            <div class="summary-box">
+                <h4>TỔNG</h4>
+                <p>Sản phẩm <span class="float-right">560.000 VND</span></p>
+                <p>Phí Ship</p>
+                <select class="form-control mb-3">
+                    <option>Phí Ship 30.000 VND</option>
+                </select>
+                <p>Mã Giảm Giá</p>
+                <input type="text" class="form-control mb-3" placeholder="Enter your code">
+                <p class="total-price">Tổng Tiền <span class="float-right">590.000 VND</span></p>
+                <button class="checkout-btn">THANH TOÁN</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <a href="#" class="logo"><img src="../img/logo.png" alt="Logo" style="margin-bottom: 10px; width: 130px; height: 27px;"></a>
+            <p>SỐ ĐIỆN THOẠI +90 212 123 45 67</p>
+            <p>3586 ĐƯỜNG 123 CAO THẮNG, PHƯỜNG 8,TP. HCM</p>
+            <button style="background-color: white; color: black; border: none; padding: 10px 20px; margin: 20px 0; border-radius: 20px; cursor: pointer;">LIÊN HỆ</button>
+            <div class="social-icons">
+                <a href="#" style="color: white; margin: 0 10px;"><i class='bx bxl-facebook'></i></a>
+                <a href="#" style="color: white; margin: 0 10px;"><i class='bx bxl-twitter'></i></a>
+                <a href="#" style="color: white; margin: 0 10px;"><i class='bx bxl-instagram'></i></a>
+                <a href="#" style="color: white; margin: 0 10px;"><i class='bx bxl-youtube'></i></a>
+                <a href="#" style="color: white; margin: 0 10px;"><i class='bx bxl-pinterest-alt'></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/js/all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

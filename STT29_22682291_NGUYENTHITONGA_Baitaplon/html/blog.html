@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecommerce Responsive full website</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBOVD591QIYicR65iaqukzvf/nwasF0nqhPay5w/91JmVM2hMDcnK10nMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../webquanao/css/bootstrap.min.css">
+    <script src="../webquanao/js/bootstrap.min.js"></script>
+    <script src="../webquanao/js/bootstrap.min.js"></script>
+    <script src="../webquanao/js/jquery-3.7.1.min.js"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <style>
+        /* Custom styles */
+        
+        body {
+            font-family: 'Jost', sans-serif;
+            margin-top: 80px;
+            /* Đảm bảo nội dung có khoảng cách so với header cố định */
+        }
+        
+        .logo img {
+            max-width: 120px;
+        }
+        
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="fixed-top bg-white py-3 shadow-sm">
+        <div class="container d-flex align-items-center justify-content-between">
+            <a href="../html/home.html" class="logo"><img src="../img/logo.png" alt="Logo"></a>
+            <nav class="nav">
+                <a href="../html/home.html" class="text-dark nav-link">Trang chủ</a>
+                <a href="../html/product.html" class="text-dark nav-link">Sản Phẩm</a>
+                <a href="../html/blog.html" class="text-dark nav-link">Bài viết</a>
+                <a href="../html/cart.html" class="text-dark nav-link">Giỏ hàng</a>
+                <a href="../html/map.html" class="text-dark nav-link">Bản đồ</a>
+                <a href="../html/contact.html" class="text-dark nav-link">Liên hệ</a>
+                <!-- Mục "Bản đồ" mới -->
+                <div class="nav-icons d-flex align-items-center">
+                    <div class="nav-item dropdown">
+                        <a href="#" class="text-dark mx-2 dropdown-toggle" id="userMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tài khoản</a>
+                        <div class="dropdown-menu" aria-labelledby="userMenu">
+                            <a class="dropdown-item" href="../html/registation.html">Đăng ký</a>
+                            <a class="dropdown-item" href="../html/login.html">Đăng nhập</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <div class="nav-icons d-flex align-items-center">
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-secondary" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </header>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <h2 style="font-weight: 600;">Tầm quan trọng của thời trang trong cuộc sống hiện đại và xu hướng thời trang 2024</h2>
+                <p>Thời trang đóng vai trò quan trọng trong cuộc sống hiện đại, không chỉ là phương tiện thể hiện cá nhân mà còn phản ánh xu hướng và văn hóa xã hội. .</p>
+                <p>Trong nhịp sống ngày càng nhanh, thời trang giúp con người tự tin và khẳng định bản thân qua những lựa chọn phù hợp với phong cách, hoàn cảnh. Năm 2024, xu hướng thời trang tập trung vào sự tối giản nhưng vẫn đậm dấu ấn cá nhân, với sự
+                    kết hợp giữa phong cách thanh lịch và tính ứng dụng cao..</p>
+                <p> Các thiết kế thân thiện với môi trường và chất liệu bền vững tiếp tục lên ngôi, nhằm đáp ứng nhu cầu của người tiêu dùng hiện đại về một phong cách thời trang bền vững và có trách nhiệm với môi trường.</p>
+                <img src="../img/bl-2.png" alt="Surreal Valley" class="img-fluid mt-3" style="max-width: 100%; height: auto; margin-bottom: 50px;">
+
+            </div>
+        </div>
+    </div>
+    <!-- Blog Section -->
+    <section class="blog-section text-center py-5">
+        <div class="container">
+            <h2 class="mb-5">BÀI VIẾT</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="../img/bl-1.png" class="card-img-top" alt="Blog 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Xu hướng thời trang 2024</h5>
+                            <p class="card-text">Xu hướng thời trang 2024 tập trung vào sự kết hợp giữa phong cách bền vững và tối giản, với màu sắc tự nhiên và thiết kế linh hoạt, mang lại sự thoải mái.</p>
+                            <a href="../html/blog.html" class="btn btn-outline-secondary">Đọc thêm</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="../img/bl-2.png" class="card-img-top" alt="Blog 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Bộ sưu tập thu đông 2024</h5>
+                            <p class="card-text">Bộ sưu tập Thu Đông mang đến sự ấm áp và phong cách với những thiết kế tinh tế, gam màu trầm ấm và chất liệu cao cấp, hoàn hảo cho mùa lạnh.</p>
+                            <a href="../html/blog.html" class="btn btn-outline-secondary">Đọc thêm</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="../img/bl-3.png" class="card-img-top" alt="Blog 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Tủ đồ xinh 2024</h5>
+                            <p class="card-text">Tủ Đồ Xinh 2024 mang đến phong cách thời trang tinh tế, hiện đại, với những thiết kế phù hợp xu hướng và dễ dàng phối đồ cho mọi dịp.</p>
+                            <a href="../html/blog.html" class="btn btn-outline-secondary">Đọc thêm</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer style="background-color: #333; color: white; text-align: center; padding: 40px 0; ">
+        <div class="container ">
+            <a href="# " class="logo "><img src="../img/logo.png " alt="Logo " style="margin-bottom: 10px; width: 200px; height: 30px; "></a>
+            <p>SỐ ĐIỆN THOẠI +90 212 123 45 67</p>
+            <p>3586 ĐƯỜNG 123 CAO THẮNG, PHƯỜNG 8,TP. HCM</p>
+
+            <button style="background-color: white; color: black; border: none; padding: 10px 20px; margin: 20px 0; border-radius: 20px; cursor: pointer; ">
+                LIÊN HỆ
+            </button>
+
+            <div class="social-icons " style="margin: 15px 0; ">
+                <a href="# " style="color: white; margin: 0 10px; font-size: 20px; ">
+                    <i class='bx bxl-facebook'></i>
+                </a>
+                <a href="# " style="color: white; margin: 0 10px; font-size: 20px; ">
+                    <i class='bx bxl-twitter'></i>
+                </a>
+                <a href="# " style="color: white; margin: 0 10px; font-size: 20px; ">
+                    <i class='bx bxl-instagram'></i>
+                </a>
+                <a href="# " style="color: white; margin: 0 10px; font-size: 20px; ">
+                    <i class='bx bxl-youtube'></i>
+                </a>
+                <a href="# " style="color: white; margin: 0 10px; font-size: 20px; ">
+                    <i class='bx bxl-pinterest-alt'></i>
+                </a>
+
+            </div>
+        </div>
+
+    </footer>
+
+    <!-- Font Awesome JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/js/all.min.js " integrity="sha512-5F2y9UlIdoH5i04AYq3B1ntFghakOkdfmZCFk3B3mzuSRypEoXdt9BVVbkLgixNHbPPWkP/NtK8psZ+9D7U2SA==" crossorigin=" anonymous " referrerpolicy="no-referrer "></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js "></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js "></script>
+
+    <!-- Scripts -->
+</body>
+
+</html>
